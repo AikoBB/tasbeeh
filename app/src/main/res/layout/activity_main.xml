@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aykobb.mytasbeeh.com.aigerimbb.android.mytasbeeh.MainActivity"
+    android:orientation="vertical"
+    android:background="@drawable/backimg">
+    <include
+        android:id="@+id/my_toolbar"
+        layout="@layout/my_toolbar"
+        ></include>
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="53dp"
+        style="@style/SpinnerStyle"
+        android:id="@+id/spinner"
+        android:spinnerMode="dialog"
+        android:layout_marginBottom="10dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="70dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_height="56dp"
+            style="@style/CounterStyle"
+            android:id="@+id/counter"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:text="100"
+            android:layout_weight="0.16"
+            android:layout_width="80dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit"
+            android:background="@drawable/edit"
+            android:layout_marginRight="20dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add"
+            android:background="@drawable/add"
+            android:layout_marginRight="20dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/delete"
+            android:background="@drawable/delete"
+            android:focusableInTouchMode="false" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/bottom_layout"
+        android:background="@drawable/background_border">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/prev"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/prev" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next"
+            android:background="@drawable/next"
+            android:layout_alignBottom="@+id/prev"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            style="@style/MyFontStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Large Text"
+            android:id="@+id/tasbeehName"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="10dp" />
+
+        <ScrollView
+            android:layout_marginRight="10dp"
+            android:layout_width="210dp"
+            android:layout_marginLeft="10dp"
+            android:layout_below="@+id/tasbeehName"
+            android:layout_centerHorizontal="true"
+            android:layout_height="270dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:text="TextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:id="@+id/tasbeehContent" />
+            </LinearLayout>
+        </ScrollView>
+
+
+    </RelativeLayout>
+</LinearLayout>
