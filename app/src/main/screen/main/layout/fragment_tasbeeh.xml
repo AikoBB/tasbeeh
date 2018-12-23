@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.aigerimbb.android.tasbeeh.ui.main.MainViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backimg"
+        android:clickable="true"
+        android:onClick="@{() -> viewModel.decreaseCounter()}">
+
+        <TextView
+            android:id="@+id/tasbeehName"
+            style="@style/BlueTitleText"
+            android:layout_marginStart="@dimen/small_padding"
+            android:layout_marginTop="@dimen/normal_padding"
+            android:layout_marginEnd="@dimen/small_padding"
+            tools:text="Large Text"
+            android:text="@{viewModel.selectedTasbeeh.name}"
+            android:clickable="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tasbeehMeaning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@{`( ` + viewModel.selectedTasbeeh.meaning + ` )`}"
+            android:clickable="false"
+            android:textSize="@dimen/medium_text"
+            app:layout_constraintTop_toBottomOf="@+id/tasbeehName"
+            tools:text="TextView" />
+
+        <ImageView
+            android:id="@+id/prev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_padding"
+            android:background="@drawable/prev"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onPrevClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/small_padding"
+            android:background="@drawable/next"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onNextClick()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:id="@+id/scrollable"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/small_padding"
+            android:layout_marginTop="@dimen/large_padding"
+            android:layout_marginEnd="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/normal_padding"
+            android:clickable="false"
+            app:layout_constraintBottom_toTopOf="@+id/counter"
+            app:layout_constraintEnd_toStartOf="@+id/next"
+            app:layout_constraintStart_toEndOf="@+id/prev"
+            app:layout_constraintTop_toBottomOf="@+id/tasbeehMeaning">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                android:orientation="vertical"
+                android:onClick="@{() -> viewModel.decreaseCounter()}">
+
+                <TextView
+                    android:id="@+id/tasbeehContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:gravity="center"
+                    android:text="@{viewModel.selectedTasbeeh.content}"
+                    android:padding="@dimen/small_padding"
+                    android:textSize="@dimen/medium_text"
+                    tools:text="TextView" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/counter"
+            style="@style/BlueTitleText"
+            android:layout_marginStart="@dimen/small_padding"
+            android:layout_marginEnd="@dimen/small_padding"
+            android:layout_marginBottom="@dimen/normal_padding"
+            android:textSize="@dimen/xx_large_text"
+            android:clickable="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@{String.valueOf(viewModel.counter)}"
+            tools:text="100" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

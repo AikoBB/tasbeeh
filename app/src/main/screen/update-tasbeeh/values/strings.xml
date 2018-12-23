@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasbeeh_meaning">Мааниси</string>
+    <string name="tasbeeh_hadith">Хадис</string>
+    <string name="tasbeeh_max_number">Зикир саны</string>
+    <string name="save">Сакта</string>
+    <string name="can_not_be_empty">%s бош болбошу керек!</string>
+    <string name="saved_successfully">Тасбих ийгиликтуу сакталды!</string>
+</resources>

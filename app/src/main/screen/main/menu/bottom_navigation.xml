@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_tasbeeh"
+        android:enabled="true"
+        android:icon="@drawable/ic_color_lens_black_24dp"
+        android:title="@string/tasbeeh"
+        app:showAsAction="always|withText"/>
+
+    <item
+        android:id="@+id/menu_tasbeeh_list"
+        android:enabled="true"
+        android:icon="@drawable/ic_list_black_24dp"
+        android:title="@string/tasbeeh_list"
+        app:showAsAction="always|withText"/>
+
+    <item
+        android:id="@+id/menu_profit"
+        android:enabled="true"
+        android:icon="@drawable/ic_info_black_24dp"
+        android:title="@string/info"
+        app:showAsAction="always|withText"/>
+
+
+</menu>

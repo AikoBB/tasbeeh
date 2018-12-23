@@ -1,34 +1,68 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-    signingConfigs {
-    }
-    compileSdkVersion 25
-    buildToolsVersion '25.0.1'
+    compileSdkVersion Versions.compileSdk
     defaultConfig {
         applicationId "com.aigerimbb.android.tasbeeh"
-        minSdkVersion 14
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+        multiDexEnabled true
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    productFlavors {
-    }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    sourceSets{
+        main {
+            res.srcDirs = [
+                    'src/main/res',
+                    'src/main/screen/main',
+                    'src/main/screen/update-tasbeeh',
+            ]
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
 }
 
 dependencies {
-    compile fileTree(include: 'Parse-*.jar', dir: 'libs')
-    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
-    compile 'com.android.support:support-v4:25.0.1'
-    compile 'com.android.support:appcompat-v7:25.0.1'
+    implementation fileTree(include: 'Parse-*.jar', dir: 'libs')
+    implementation project(Modules.core)
+    implementation KotlinLibs.kotlin
+    implementation AndroidLibs.multidex
+    implementation AndroidArchLibs.dataBinding
+    implementation AndroidArchLibs.paggingRuntime
+    implementation AndroidArchLibs.roomRuntime
+    kapt AndroidArchLibs.roomCompiler
+
+    implementation GoogleLibs.dagger
+    implementation GoogleLibs.daggerAndroid
+    kapt GoogleLibs.daggerProcessor
+    kapt GoogleLibs.daggerCompiler
+
+}
+
+kapt {
+    generateStubs = true
 }

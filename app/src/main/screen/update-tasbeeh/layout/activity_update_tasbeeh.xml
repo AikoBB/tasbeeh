@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.aigerimbb.android.tasbeeh.ui.update.UpdateTasbeehViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/toolbar"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_tasbeeh_name"
+                    style="@style/UpdateTextInputLayoutStyle"
+                    android:layout_marginTop="@dimen/normal_padding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:errorTextAppearance="@style/InvalidInputText"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tasbeeh_name"
+                        style="@style/UpdateEditTextStyle"
+                        android:hint="@string/tasbeeh"
+                        android:text="@={viewModel.tasbeeh.name}"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_tasbeeh_meaning"
+                    style="@style/UpdateTextInputLayoutStyle"
+                    android:layout_marginTop="@dimen/small_padding"
+                    app:errorEnabled="true"
+                    app:errorTextAppearance="@style/InvalidInputText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_tasbeeh_name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tasbeeh_meaning"
+                        style="@style/UpdateEditTextStyle"
+                        android:hint="@string/tasbeeh_meaning"
+                        android:text="@={viewModel.tasbeeh.meaning}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_tasbeeh_hadith"
+                    style="@style/UpdateTextInputLayoutStyle"
+                    app:errorEnabled="true"
+                    app:errorTextAppearance="@style/InvalidInputText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_tasbeeh_meaning">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tasbeeh_hadith"
+                        style="@style/UpdateEditTextStyle"
+                        android:hint="@string/tasbeeh_hadith"
+                        android:inputType="textMultiLine"
+                        android:lines="6"
+                        android:maxLength="1000"
+                        android:text="@={viewModel.tasbeeh.content}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/layout_tasbeeh_count"
+                    style="@style/UpdateTextInputLayoutStyle"
+                    app:errorEnabled="true"
+                    app:errorTextAppearance="@style/InvalidInputText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_tasbeeh_hadith">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tasbeeh_count"
+                        style="@style/UpdateEditTextStyle"
+                        android:hint="@string/tasbeeh_hadith"
+                        android:inputType="number"
+                        android:text="@={`` + viewModel.tasbeeh.maxCount}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btn_save"
+                    style="@style/AppButtonStyle"
+                    android:text="@string/save"
+                    android:layout_marginTop="@dimen/normal_padding"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/layout_tasbeeh_count"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</layout>

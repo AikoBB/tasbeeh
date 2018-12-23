@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="InvalidInputText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@android:color/holo_red_dark</item>
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="UpdateTextInputLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/normal_padding</item>
+        <item name="android:layout_marginRight">@dimen/normal_padding</item>
+    </style>
+
+    <style name="UpdateEditTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/normal_text</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:maxLength">100</item>
+    </style>
+
+</resources>
